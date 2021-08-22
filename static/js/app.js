@@ -26,7 +26,7 @@ function buildTable(data) {
 // 1. Create a variable to keep track of all the filters as an object.
 
 var filters = [
-  { id: "date", value: "" },
+  { id: "datetime", value: "" },
   { id: "city", value: "" },
   { id: "state", value: "" },
   { id: "country", value: "" },
@@ -43,12 +43,7 @@ var filters = [
 // 5. If a filter value was entered then add that filterId and value
 // to the filters list. Otherwise, clear that filter from the filters object.
 
-function updateFilters() {
-
-  console.log("hello from updateFilters");
-};
-
-function updateFilters2(elementId) {
+function updateFilters(elementId) {
 
   filters.forEach(function (item) {
 
@@ -57,10 +52,12 @@ function updateFilters2(elementId) {
       item.value = selectvalue;
     }
 
-    //filterTable(filters);
-    console.log(filters)
+
+
 
   });
+  filterTable(filters);
+  console.log(filters)
 
   // let selectdate = d3.select("#datetime").property("value");
   // let selectcity = d3.select("#city").property("value");
@@ -101,29 +98,29 @@ function filterTable(filters) {
 
   filters.forEach(function (item) {
 
-    if (item.id === "date") {
+    if (item.id === "datetime" && item.value!=="") {
 
       filteredData = filteredData.filter(row => row.datetime === item.value);
 
     }
 
 
-    if (item.id === "city") {
+    if (item.id === "city" && item.value!=="") {
 
       filteredData = filteredData.filter(row => row.selectcity === item.value);
     }
 
-    if (item.id === "state") {
+    if (item.id === "state" && item.value!=="") {
 
-      filteredData = filteredData.filter(row => row.selectcity === item.value);
+      filteredData = filteredData.filter(row => row.selectstate === item.value);
     }
 
-    if (item.id === "country") {
+    if (item.id === "country" && item.value!=="") {
 
       filteredData = filteredData.filter(row => row.selectcountry === item.value);
     }
 
-    if (item.id === "shape") {
+    if (item.id === "shape" && item.value!=="") {
 
       filteredData = filteredData.filter(row => row.selectshape === item.value);
     };
@@ -136,9 +133,12 @@ function filterTable(filters) {
     //filterTable();
 
   });
+
+  buildTable(filteredData)
+  console.log(filteredData);
+
 }
 // 7. Use this function to filter the table when data is entered.
-function filterTable() {
 
       // 8. Set the filtered data to the tableData.
 
@@ -149,7 +149,7 @@ function filterTable() {
 
       // 10. Finally, rebuild the table using the filtered data
 
-    }
+
 
 // 2. Attach an event to listen for changes to each filter
 

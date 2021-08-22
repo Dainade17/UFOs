@@ -57,32 +57,32 @@
 
           <li class="bg-dark">
             <label for="date">Enter Date</label>
-            <input type="text" placeholder="1/10/2010" id="datetime" onchange="updateFilters" />
+            <input type="text" placeholder="1/10/2010" id="datetime" onchange="updateFilters('datetime')"/>
           </li>
 
           <!-- Challenge code -->
           <li class="bg-dark">
             <label for="city">City</label>
-            <input type="text" placeholder="bakersfield" id="city"/>
+            <input type="text" placeholder="bakersfield" id="city" onchange="updateFilters('city')"/>
           </li>
         
 
           <li class="bg-dark">
             <label for="state">State</label>
-            <input type="text" placeholder="ar" id="state" />
+            <input type="text" placeholder="ar" id="state" onchange="updateFilters('state')" />
           </li>
 
 
           <li class="bg-dark">
             <label for="country">Country</label>
-            <input type="text" placeholder="us" id="country"/>
+            <input type="text" placeholder="us" id="country" onchange="updateFilters('country')"/>
           </li>
 
 
 
           <li class="bg-dark">
             <label for="shape">Shape</label>
-            <input type="text" placeholder="circle" id="circle" />
+            <input type="text" placeholder="circle" id="shape" onchange="updateFilters('shape')" />
           </li>
 
           <!--             removed for challenge!!
